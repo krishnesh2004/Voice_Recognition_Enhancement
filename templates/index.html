@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Voice Recognition Enhancement</title>
+    <style>
+      body {
+        background: linear-gradient(135deg, #1e1e1e, #2e2e2e);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        color: #f0f0f0;
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(8px);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+      }
+
+      h2 {
+        color: #8ee4af;
+        margin-bottom: 20px;
+      }
+
+      input[type="file"] {
+        margin: 15px 0;
+        color: #ddd;
+      }
+
+      input[type="submit"] {
+        background: #8ee4af;
+        color: #1e1e1e;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      input[type="submit"]:hover {
+        background: #5bd4a2;
+        color: #fff;
+      }
+
+      h3 {
+        color: #f8f8f8;
+        margin-top: 25px;
+      }
+
+      p {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #e8e8e8;
+        word-wrap: break-word;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Upload Audio File</h2>
+      <form method="post" enctype="multipart/form-data">
+        <input type="file" name="audiofile" required /><br />
+        <input type="submit" value="Upload & Process" />
+      </form>
+
+      {% if transcription %}
+      <h3>Transcription:</h3>
+      <p>{{ transcription }}</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
